@@ -1,0 +1,137 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Carousel test</title>
+    <style type="text/css">
+    img {
+        border:0;
+    }
+    .yui3-carousel-container {
+        width:545px;
+        margin-left:100px;
+        position:relative;
+        background-color:#f3f3f3;
+        border:1px solid #ccc;
+        -moz-user-select:none;
+        -webkit-user-select:none;
+        user-select:none;
+    }
+    .yui3-carousel-viewport {
+        overflow:hidden;
+        position:relative;
+        width:100%;
+    }
+    .yui3-carousel-viewport ul {
+        list-style-type:none;
+        position:relative;
+        display:block;
+        margin:0;
+        padding:0;
+        height:150px;
+        width:100000px;
+    }
+    .yui3-carousel-viewport ul li {
+        float:left;
+        height:150px;
+        text-align:left;
+    }
+
+    ul.yui3-carousel-numbers-container {
+        position:absolute;
+        top:0;
+        right:0;
+        list-style-type:none;
+        margin:0;
+    }
+
+    ul.yui3-carousel-numbers-container li {
+        float:left;
+        width:31px;
+        height:31px;
+        font-size:12px;
+        font-weight:bold;
+        text-align:center;
+        line-height:31px;
+        background:url(animNum_off.png) no-repeat;
+        margin-left:2px;
+        cursor:pointer;
+    }
+    ul.yui3-carousel-numbers-container li.yui3-carousel-nav-active {
+        background-image:url(animNum_on.png);
+        color:#fff;
+    }
+
+    ul.yui3-carousel-dots-container {
+        position:absolute;
+        bottom:0;
+        right:0;
+        list-style-type:none;
+        margin:0 5px 5px 0;
+    }
+
+    ul.yui3-carousel-dots-container li {
+        float:left;
+        width:15px;
+        height:15px;
+        background-color:#999;
+        margin-left:3px;
+        cursor:pointer;
+        -moz-border-radius:7px;
+    }
+    ul.yui3-carousel-dots-container li.yui3-carousel-nav-active {
+        background-color:#333;
+    }
+    .yui3-carousel-arrow-left, .yui3-carousel-arrow-right  {
+        width:32px;
+        height:152px;
+        position:absolute;
+        top:0;
+        cursor:pointer;
+    }
+    .yui3-carousel-arrow-left {
+        background:url(left-scroll_on.png) no-repeat;
+        left:-40px;
+    }
+    .yui3-carousel-arrow-left.yui3-carousel-arrow-disabled {
+        background:url(left-scroll.png) no-repeat;
+        right:-40px;
+    }
+    .yui3-carousel-arrow-right {
+        background:url(right-scroll_on.png) no-repeat;
+        right:-40px;
+    }
+    .yui3-carousel-arrow-right.yui3-carousel-arrow-disabled {
+        background:url(right-scroll.png) no-repeat;
+        right:-40px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="yui3-carousel-container" id="foo">
+        <div class="yui3-carousel-viewport">
+            <ul class="yui3-carousel-stack">
+                <li><a href=""><img src="545x150_office2010.jpg" alt="" /></a></li>
+                <li><img src="ban_promo_fnac2.jpg" alt="" /></li>
+                <li><img src="norton_fnac.jpg" alt="" /></li>
+                <li><a href=""><img src="545x150_office2010.jpg" alt="" /></a></li>
+                <li><img src="ban_promo_fnac2.jpg" alt="" /></li>
+                <li><img src="norton_fnac.jpg" alt="" /></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="yui-min.js"></script>
+    <script type="text/javascript" src="carousel.js"></script>
+    <script type="text/javascript">
+    YUI().use('carousel', function(Y) {
+        var carousel = new Y.Carousel({
+            srcNode: '#foo',
+            navigationType: ['dots', 'arrows'],
+            circular: true
+        });
+        carousel.render();
+    });
+    </script>
+</body>
+</html>
